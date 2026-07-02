@@ -98,13 +98,6 @@ class GetTimeAgo {
         '',
         message,
       );
-    } else if (elapsed.inSeconds < 15 && isFuture) {
-      result = formatMessage(
-        prefix,
-        message.secsAgo(elapsed.inSeconds),
-        suffix,
-        message,
-      );
     } else if (elapsed.inSeconds < 60) {
       // If the time difference is less than 60 seconds, display the seconds ago message.
       result = formatMessage(

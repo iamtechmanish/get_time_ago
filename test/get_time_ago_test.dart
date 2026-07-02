@@ -91,6 +91,14 @@ void main() {
       expect(result, equals('3 mins ago'));
     });
 
+    test('Test future date (less than 15 seconds)', () {
+      GetTimeAgo.setDefaultLocale('en');
+      final dateTime = DateTime.now().add(const Duration(seconds: 10));
+      final result = GetTimeAgo.parse(dateTime);
+      expect(result, matches(RegExp(r'^in \d+ seconds$')));
+      expect(result, isNot(equals('just now')));
+    });
+
     test('Test future date (seconds)', () {
       GetTimeAgo.setDefaultLocale('en');
       final dateTime = DateTime.now().add(const Duration(seconds: 45));
